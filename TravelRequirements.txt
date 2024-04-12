@@ -1,0 +1,37 @@
+Travel Assistant - 
+
+Places to visit -US
+
+First Phase: 
+
+1. Identify good data for either place to visit based on date , 
+
+2. Airbnb - based on date and city - airbnb stay 
+
+3. National Parks - Explore - 
+
+
+
+Data
+
+What data? - Friday (4/11) - Meet on Sat/Sun - 2 pm (tentative)
+
+How we fetch the data? 
+
+How we cleanup the data?
+
+
+Model
+
+Which modules we will use? NLP / NN 
+
+
+User Interface: 
+
+Lex - Chatbot 
+
+
+Deliverables: 
+
+Presentation
+Demo
