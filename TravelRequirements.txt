@@ -16,6 +16,14 @@ Data
 
 What data? - Friday (4/11) - Meet on Sat/Sun - 2 pm (tentative)
 
+### Options
+1. Get spreadhsheet with airnbn review data from Kaggle (https://www.kaggle.com/datasets/kritikseth/us-airbnb-open-data/data?select=AB_US_2023.csv)
+    conda install conda-forge::google-colab
+2. https://developers.google.com/maps/documentation/places/web-service/overview
+3. https://home.openweathermap.org/api_keys
+4. https://developer.nytimes.com/apis
+
+
 How we fetch the data? 
 
 How we cleanup the data?
