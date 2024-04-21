@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this in the head section of your HTML file -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleset.css') }}">
+    <title>innSight</title>
+</head>
+<!-- JavaScript code to handle form submission -->
+<script>
+    $(document).ready(function() {
+        // Intercept form submission
+        $('#searchForm').submit(function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get form data
+            var formData = $(this).serialize();
+
+            // Make an AJAX request to the server
+            $.ajax({
+                type: 'POST',
+                url: '/search',
+                data: formData,
+                success: function(response) {
+                    // Update the content of the result element with the received data
+                    displaySearchResult(response);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+
+        // Function to display search result details
+        function displaySearchResult(data) {
+            // Access data attributes
+            console.log(data)
+            
+            var resultHtml = ''
+
+            if(data.length == 0)
+                resultHtml = (
+                    `<p><span>Your query didnot find any results. Please try different query.</span><br>`
+                );
+            else                
+                for(var i=0;i<data.length;i++) {
+                    resultHtml += `<p><span>${i+1}. ${data[i]['name']}</span><br />` +
+                        `<span class="rating">Rating: ${data[i]['rating']}</span><br />` +  
+                        `<span class="keywords">${data[i]['reviewWords']}</span><br />`
+
+                    s_scores = data[i]['sentimentScores']
+                    
+                    if(s_scores != null)
+                    {
+                        resultHtml += `<span class="scoring">Reviews Sentiments: </span><br />`
+                        resultHtml += `<ul>`;
+
+                        for (var key in s_scores) {
+                            if (s_scores.hasOwnProperty(key)) {
+                                resultHtml += `<li><strong>` + key + ':</strong> ' + s_scores[key] + `</li>`;
+                            }
+                        }
+
+                        resultHtml += `</ul>`;
+                    }
+
+                    resultHtml += `<a href="` + data[i]['website'] + `" target="_blank">Visit for booking</a>`
+
+                    resultHtml += `</p>`
+                }
+            // Update the content of the result element
+            $('#searchResult').html(resultHtml);
+        }
+    });
+</script>
+<body>
+    <header>
+        <h1 text-align="center">Welcome to {{ app_name }}</h1>
+    </header>
+
+    <section>
+        <nav>
+            <form id="searchForm" >
+                <p>
+                    <label for="search_option">Select a category to search: </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="radio" name="option" value="hotel" checked="checked"> Hotels 
+                    </label>
+                    <br />
+                    <label>
+                        <input type="radio" name="option" value="extended_stay_hotel"> Extended Stay Hotels 
+                    </label>
+                </p>
+                <p>
+                    <label for="search_option">Average Rating: </label><input type="number" name="min_rating" value="0" min="0" max="5"/> 
+                </p>
+                <p>
+                    <label for="search_string">Enter a query to search for reviews and get recommendations: </label>
+                </p>
+                <p>
+                    <textarea id="search_string" name="search_string" required rows="4" cols="60" placeholder="For Example: top hotels in Columbus, OH; free parking in chicago, IL; complimentary breakfast near magic kingdom Orlando"></textarea>
+                </p>
+                <p>
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+        </nav>
+
+        <article>
+            <div id="articleHeader">
+                Recommendations
+            </div>
+            <div id="searchResult">
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        InnSight copyright 2024
+    </footer>
+</body>
+</html>
