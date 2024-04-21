@@ -21,15 +21,27 @@
 
             // Get form data
             var formData = $(this).serialize();
+            
+            var selectedOption = document.querySelector('input[name="option"]:checked').value;
+
+            actionUrl = '/search'
+            if(selectedOption == 'places'){
+                actionUrl = '/searchPlaces'
+            }
 
             // Make an AJAX request to the server
             $.ajax({
                 type: 'POST',
-                url: '/search',
+                url: actionUrl,
                 data: formData,
                 success: function(response) {
                     // Update the content of the result element with the received data
-                    displaySearchResult(response);
+                    if(selectedOption == 'places')
+                    {
+                        displayPlacesResult(response);
+                    }
+                    else
+                        displaySearchResult(response);
                 },
                 error: function(error) {
                     console.log('Error:', error);
@@ -46,7 +58,7 @@
 
             if(data.length == 0)
                 resultHtml = (
-                    `<p><span>Your query didnot find any results. Please try different query.</span><br>`
+                    `<p><span>Your query did not find any results. Please try different query.</span><br>`
                 );
             else                
                 for(var i=0;i<data.length;i++) {
@@ -77,6 +89,21 @@
             // Update the content of the result element
             $('#searchResult').html(resultHtml);
         }
+
+        function displayPlacesResult(data) {
+            // Access data attributes
+            console.log(data)
+            
+            var resultHtml = ''
+
+            for(var i=0;i<data.length;i++) {
+                resultHtml += `<span><label><input type="radio" name="option" value="${data[i]}"> ${data[i]}</label></span><br />`
+            }
+
+            resultHtml += `<span><input type="button" name="placeDetails" value="Explore Place"/></span>`
+            // Update the content of the result element
+            $('#searchResult').html(resultHtml);
+        }
     });
 </script>
 <body>
@@ -98,9 +125,13 @@
                     <label>
                         <input type="radio" name="option" value="extended_stay_hotel"> Extended Stay Hotels 
                     </label>
+                    <br />
+                    <label>
+                        <input type="radio" name="option" value="places"> Places to visit
+                    </label>
                 </p>
                 <p>
-                    <label for="search_option">Average Rating: </label><input type="number" name="min_rating" value="0" min="0" max="5"/> 
+                    <label for="min_rating">Average Rating: </label><input type="number" name="min_rating" value="0" min="0" max="5"/> 
                 </p>
                 <p>
                     <label for="search_string">Enter a query to search for reviews and get recommendations: </label>

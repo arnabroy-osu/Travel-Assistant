@@ -19,6 +19,7 @@ def home():
 
 @app.route('/search', methods=['POST'])
 def search():
+    print('enterd search ')
     search_option = request.form.get('option', 'hotel')
     search_string = request.form.get('search_string', '')
     min_rating = request.form.get('min_rating', 0)    
@@ -48,6 +49,18 @@ def search():
         final_results.append(eachResult)
 
     return jsonify(final_results)
+
+@app.route('/searchPlaces', methods=['POST'])
+def searchPlaces():
+    print('enterd search places')
+    search_string = request.form.get('search_string', '')
+
+    lat, lon = innsight_model.get_lat_long(search_string)
+
+    list_places = innsight_model.get_top_attractions(lon, lat, 5)
+    print(list_places)
+    
+    return jsonify(list_places)
 
 def review_scores(reviews):
     ''' 

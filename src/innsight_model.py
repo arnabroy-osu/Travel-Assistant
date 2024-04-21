@@ -120,3 +120,43 @@ def analyze_reviews(review_data, review_prompt):
         input_document=review_data, 
         question=review_prompt)
     return ans
+
+def get_lat_long(city_name):
+    base_url = "https://nominatim.openstreetmap.org/search"
+    params = {
+        "q": city_name,
+        "format": "json"
+    }
+    response = requests.get(base_url, params=params)
+    data = response.json()
+    if data:
+        lat = data[0]["lat"]
+        lon = data[0]["lon"]
+        return lat, lon
+    else:
+        return None, None
+    
+def get_top_attractions(longitude, latitude, n):
+    try:
+        # Convert n to an integer
+        n = int(n)
+        if n <= 0:
+            raise ValueError("N must be a positive integer")
+        # Make API call
+        url = f"https://api.opentripmap.com/0.1/en/places/radius?radius=100000&lon={longitude}&lat={latitude}&kinds=tourist_object&format=json&limit={n}&apikey={os.environ.get('OPEN_TRIP_MAP_KEY')}"
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad response status
+        # Extract top attractions
+        attractions = response.json()
+        # Extract names of top attractions
+        top_attractions = [attraction['name'] for attraction in attractions]
+        return top_attractions
+    
+    except ValueError as ve:
+        print(f"Error: {ve}")
+    except requests.RequestException as re:
+        print(f"Error making API request: {re}")
+    except KeyError:
+        print("Error: Response format unexpected, please check API documentation.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
