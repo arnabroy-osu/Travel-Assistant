@@ -123,6 +123,7 @@ celerybeat.pid
 
 # Environments
 
+
 .venv
 env/
 venv/
@@ -167,3 +168,5 @@ cython_debug/
 # Data Source Dir
 /Source
 ~$o
+
+.env
