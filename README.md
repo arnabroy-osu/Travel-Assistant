@@ -7,7 +7,7 @@
   - [Data Analysis](#data-analysis)
   - [Preprocessing](#preprocessing)
 - [Modeling](#modeling)
-  - [Approach](#approach)\
+  - [Approach](#approach)
 - [Conclusion](#conclusion)
 
 
