@@ -1,5 +1,8 @@
 .DS_Store
 
+# Env Variables - API Keys
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
