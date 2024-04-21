@@ -23,6 +23,9 @@ In the initial dataset we found that the ratings and reviews text was a good fea
 
 Below are some sample charts that helps to understand sentiment analysis and frequent words used in reviews, 
 
+![image](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/aa24be20-28ba-4bb9-b014-ac51cb192b46)  
+
+![image](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/30eb1009-0e5e-4833-aba8-70c2e88d2f5d)  
 
 
 ### Preprocessing
@@ -37,6 +40,10 @@ We started by using Tdifvectorizer to understand the words in the reviews, the f
 Then we used sentiment analysis from NLTK and TextBlob to understand the scoring of the reviews itself and provide the details to user. 
 
 Finally we used a Langchain OpenAI and Question and Answer models to analyze the reviews. Provide analysis based on user input. 
+
+Here is the sample output of the app, 
+
+![Screenshot 2024-04-21 at 10 03 57 AM](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/a733bf02-22ff-4313-ac73-ac078fc39266)
 
 ## Conclusion
 The app is initial step towards building a larger Travel assistant and make it more interactive and effective so users can completely set their travel plan with just using their natural language. 
