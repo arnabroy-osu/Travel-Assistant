@@ -54,3 +54,19 @@ Here is the sample output of the app,
 
 ## Conclusion
 The app is initial step towards building a larger Travel assistant and make it more interactive and effective so users can completely set their travel plan with just using their natural language. 
+
+## Required Modules
+- pip install pandas
+- pip install flask
+- pip install --user -U nltk
+- pip install textblob
+- pip install -U matplotlib
+- pip install numpy
+- pip install python-dotenv
+- pip install requests
+- pip install langchain
+- pip install -U textblob
+- python -m textblob.download_corpora
+
+
+
