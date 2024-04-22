@@ -52,7 +52,7 @@ Here is the sample output of the app,
 ![Screenshot 2024-04-21 at 10 03 57 AM](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/a733bf02-22ff-4313-ac73-ac078fc39266)
 
 ### Additional Approach (exploration)
-For further exploration, we also used **Support Vecor Machine (SVM)** which it a set of supervised learning methods used for classification, regression and outliers detection. The goal was trying to predict the price based on the reviews. This can be used to provide user with a predicted rating of the hotel. In this example we tried to use 'linear' kernel to predict the price. 
+For further exploration, we also used **Support Vector Machine (SVM)** which it a set of supervised learning methods used for classification, regression and outliers detection. The goal was trying to predict the price based on the reviews. This can be used to provide user with a predicted rating of the hotel. In this example we tried to use 'linear' kernel to predict the price. 
 
 ```
   Train Accuracy: 0.445
