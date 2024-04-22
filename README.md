@@ -61,7 +61,7 @@ For further exploration, we also used **Support Vector Machine (SVM)** which it 
 Due to the data being cut `purposely` in order to be able to run the model, we think that the accuracy was very low and it showed *overfitting behavior*.
 
 **Saving the Model** 
-- We saved the model using joblib so it can be used in future. 
+The goal here was to explore other methods not covered in class. Use joblib instead of pickle to save the model. 
 
 ```
   import joblib
