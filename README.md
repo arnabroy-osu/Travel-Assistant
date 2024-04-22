@@ -52,6 +52,22 @@ Here is the sample output of the app,
 
 ![Screenshot 2024-04-21 at 10 03 57 AM](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/a733bf02-22ff-4313-ac73-ac078fc39266)
 
+### Additional Approach (exploration)
+Use **Support Vecor Machine (SVM)** to predict the price based on the reviews. This can be used to provide user with a predicted rating of the hotel. In this example we tried to use 'linear' kernel to predict the price. 
+
+```
+  Train Accuracy: 0.445
+  Test Accuracy: 0.016
+```
+**Saving the Model** 
+- We saved the model using joblib so it can be used in future. 
+
+```
+  import joblib
+  filename = '../Resources/svm_model.sav'
+  joblib.dump(model, filename)
+```
+
 ## Conclusion
 The app is initial step towards building a larger Travel assistant and make it more interactive and effective so users can completely set their travel plan with just using their natural language. 
 
@@ -67,6 +83,3 @@ The app is initial step towards building a larger Travel assistant and make it m
 - pip install langchain
 - pip install -U textblob
 - python -m textblob.download_corpora
-
-
-
