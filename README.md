@@ -21,7 +21,6 @@ We have used Dataset from Datafinity which had around 20K hotel reviews along wi
 ![image](Resources/Fig1.png)
 
 ### Data Analysis
-
 Kept a few features from the dataset to analyze the reviews and ratings.
 
 ![image](Resources/Fig2.png)
@@ -35,7 +34,7 @@ Below are some sample charts that helps to understand sentiment analysis and fre
 ![image](https://github.com/arnabroy-osu/project3-group3-travel-assistant/assets/93089647/30eb1009-0e5e-4833-aba8-70c2e88d2f5d)  
 
 
-### Preprocessing
+### Date Cleaning and Preprocessing
 There were 27 features in the dataset, but as mentioned we were more focused on actual entity details like city, state, hotel name its ratings and reviews. Other unwanted features like categories, dates and others were cleaned up along with duplicates and nulls. Even though certain fields were kept for future we didnt use it for current project. 
 
 Using the Google API to get realtime reviews, we specified the fields that needs to be extracted from API so we are not fed with huge data. 
