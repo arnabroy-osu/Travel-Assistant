@@ -27,6 +27,7 @@ What data? - Friday (4/11) - Meet on Sat/Sun - 2 pm (tentative)
 How we fetch the data? 
 
 How we cleanup the data?
+- You can use scikit-learn vs NLTK to split a bag of words into a list of words
 
 
 Model
