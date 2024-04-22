@@ -83,3 +83,4 @@ The app is initial step towards building a larger Travel assistant and make it m
 - pip install langchain
 - pip install -U textblob
 - python -m textblob.download_corpora
+- pip install -U scikit-learn
