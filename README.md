@@ -16,9 +16,16 @@ InnSight - one place to get all details about the places you are going to stay w
 
 ## Data
 ### Source
-We have used Dataset from DataWorld which had around 20K hotel reviews along with the ratings. Along with that we extended our search using Google Places API to get realtime reviews of desired places. 
+We have used Dataset from Datafinity which had around 20K hotel reviews along with the ratings. Along with that we extended our search using Google Places API to get realtime reviews of desired places. We have also used date from Kaggle (airbnb).
+
+![image](Resources/Fig1.png)
 
 ### Data Analysis
+
+Kept a few features from the dataset to analyze the reviews and ratings.
+
+![image](Resources/Fig2.png)
+
 In the initial dataset we found that the ratings and reviews text was a good features to provide users what they need. We analyzed the reviews text to see what we can extract and score based on the sentiments. This good help users to decide if any specific place is good for them or not. 
 
 Below are some sample charts that helps to understand sentiment analysis and frequent words used in reviews, 
