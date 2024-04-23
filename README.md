@@ -72,6 +72,12 @@ The goal here was to explore other methods not covered in class. Use **joblib** 
 ## Conclusion
 The app is initial step towards building a larger Travel assistant and make it more interactive and effective so users can completely set their travel plan with just using their natural language. 
 
+## Resources
+- https://www.kaggle.com/datasets/kritikseth/us-airbnb-open-data/
+- https://api.python.langchain.com/en/latest/langchain_api_reference.html#
+- https://www.datafinity.io/
+- https://developers.google.com/maps/documentation/geocoding/overview
+
 ## Required Modules
 - pip install pandas
 - pip install flask
